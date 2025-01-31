@@ -244,11 +244,22 @@ $myLast = getLast($blt);
                      echo "Hello, " . $ledzep[$i] . "<br>";
                   }
             ?></li>
-            <li id="9"><?php echo "Van Halen band members include " . implode(", ", $vh) . "."; ?></li>
-            <li id="10"><?php 
-                  foreach ($vh as $key => $value) {
-                     echo "Key: $key, Value: $value<br>";
-                   }
+            <li id="9"><?php 
+               $last = array_pop($vh); // Remove last element
+               echo "Van Halen band members include " . implode(", ", $vh) . ", and " . $last . "."; 
+            ?></li>
+            <li id="10"><?php  
+               // Restore full $vh array
+               $vh = [
+                  "vocals" => "Dave",
+                  "guitar" => "Eddie",
+                  "bass" => "Michael",
+                  "drums" => "Alex"
+               ];
+
+               foreach ($vh as $key => $value) {
+                  echo "Key: $key, Value: $value<br>";
+               }
             ?></li>
             <li id="11"><?php echo simpleMsg(); ?></li>
             <li id="12"><?php echo hello($myName); ?></li>
